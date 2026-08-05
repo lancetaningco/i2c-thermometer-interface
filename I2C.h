@@ -1,0 +1,28 @@
+/********************************/
+/*            I2C.H             */
+/********************************/
+
+void I2C_Init(const unsigned long c);
+void I2C_Wait(void);
+void I2C_Start(void);
+void I2C_ReStart(void);
+void I2C_Stop(void);
+char I2C_Read(char);
+void I2C_Write(unsigned char);
+void I2C_Write_Cmd_Only(char, char);  
+void I2C_Write_Cmd_Write_Data(char, char, char);
+void I2C_Write_Address_Write_One_Byte(char, char, char);    
+BYTE I2C_Write_Address_Read_One_Byte(char, char);
+ 
+void i2cHighSda(void);
+void i2cLowSda(void);
+void i2cHighScl(void);
+void i2cLowScl(void);
+void i2cNack(void);
+void i2cAck(void);
+
+#define SCL_PIN 	PORTDbits.RD6       // Define SCL_PIN to be Port D bit 6.
+#define SCL_DIR 	TRISDbits.RD6       // Define SCL_DIR to be TRISD bit 6.
+
+#define SDA_PIN 	PORTCbits.RC4       // Define SDA_PIN to be Port C bit 4.
+#define SDA_DIR 	TRISCbits.RC4       // Decine SDA_DIR to be TRISC bit 4.
